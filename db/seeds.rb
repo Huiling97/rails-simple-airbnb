@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Cleaning database"
+Flat.destroy_all
+
+puts "Creating flats"
+
 5.times do |i|
   Flat.create!({
     name: Faker::JapaneseMedia::OnePiece.location,
@@ -15,3 +20,5 @@
     number_of_guests: rand(1..5)
   })
 end
+
+puts "Flats created!"
